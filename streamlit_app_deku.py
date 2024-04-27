@@ -26,9 +26,12 @@ def create_agent(csv_file):
 def upload_file():
     file_path = st.file_uploader("Choose a CSV file", type="csv")
     if file_path:  # Ensure a file was selected
-        global agent  # Declare agent as a global variable to use it later
-        agent = create_agent(file_path)  # Initialize agent with the uploaded file
-        st.write("File uploaded and agent created. Ask your questions!")
+        try:
+            global agent  # Declare agent as a global variable to use it later
+            agent = create_agent(file_path)  # Initialize agent with the uploaded file
+            st.write("File uploaded and agent created. Ask your questions!")
+        except Exception as e:
+            st.write(f"An error occurred while creating the agent: {e}")
     else:
         st.write("No file selected. Please try again.")
 
