@@ -1,0 +1,8 @@
+langchain==0.1.16
+langchain_experimental==0.0.57
+langchain_openai==0.1.4
+openai==1.23.6
+pandas==2.2.2
+python-dotenv==1.0.1
+streamlit==1.33.0
+altair<5
