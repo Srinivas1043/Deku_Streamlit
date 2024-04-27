@@ -19,7 +19,7 @@ def create_agent(csv_file):
         verbose=True,
         agent_type=AgentType.OPENAI_FUNCTIONS,
         )
-     except ValidationError as e:
+    except ValidationError as e:
         print("Validation errors:", e.errors())  # Log the specific errors
         raise e
 
