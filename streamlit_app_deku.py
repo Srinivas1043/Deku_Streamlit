@@ -6,16 +6,22 @@ import pandas as pd
 import getpass
 import os
 import streamlit as st
+from pydantic import ValidationError
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 def create_agent(csv_file):
-    return create_csv_agent(
+    try:
+
+        return create_csv_agent(
         ChatOpenAI(temperature=0, model="gpt-3.5-turbo"),
         csv_file,
         verbose=True,
         agent_type=AgentType.OPENAI_FUNCTIONS,
-    )
+        )
+     except ValidationError as e:
+        print("Validation errors:", e.errors())  # Log the specific errors
+        raise e
 
 def upload_file():
     file_path = st.file_uploader("Choose a CSV file", type="csv")
