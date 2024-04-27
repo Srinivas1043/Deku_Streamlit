@@ -6,10 +6,10 @@ import pandas as pd
 import getpass
 import os
 import streamlit as st
-from dotenv import load_dotenv
-load_dotenv()
+# from dotenv import load_dotenv
+# load_dotenv()
 
-os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 #getpass.getpass()
 
 def create_agent(csv_file):
